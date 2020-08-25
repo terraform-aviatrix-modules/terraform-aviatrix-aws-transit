@@ -41,8 +41,7 @@ variable "az2" {
 }
 
 variable "name" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "connected_transit" {

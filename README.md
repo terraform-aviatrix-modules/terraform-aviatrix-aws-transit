@@ -4,11 +4,11 @@
 This module deploys a VPC and a set of Aviatrix transit gateways.
 
 ### Diagram
-<img src="https://dhagens-repository-images-public.s3.eu-central-1.amazonaws.com/terraform-aviatrix-aws-transit/module-aviatrix-transit-vpc-for-aws-ha.png"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit/blob/master/img/aws-ha.png?raw=true"  height="250">
 
 with ha_gw set to false, the following will be deployed:
 
-<img src="https://dhagens-repository-images-public.s3.eu-central-1.amazonaws.com/terraform-aviatrix-aws-transit/module-aviatrix-transit-vpc-for-aws.png"  height="250">
+<img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit/blob/master/img/aws-single.png?raw=true"  height="250">
 
 ### Usage Example
 ```
@@ -27,6 +27,7 @@ The following variables are required:
 
 key | value
 --- | ---
+name | avx-\<name\>-transit
 region | AWS region to deploy the transit VPC in
 account | The AWS accountname on the Aviatrix controller, under which the controller will deploy this VPC
 cidr | The IP CIDR wo be used to create the VPC.
@@ -35,7 +36,6 @@ The following variables are optional:
 
 key | default | value
 --- | --- | ---
-name | avx-\<region\>-transit | Provide a custom name for VPC and Gateway resources. Result will be avx-\<name\>-transit.
 instance_size | t3.small | Size of the transit gateway instances
 ha_gw | true | Set to true to false te deploy a single transit GW.
 insane_mode | false | Set to true to enable insane mode encryption
