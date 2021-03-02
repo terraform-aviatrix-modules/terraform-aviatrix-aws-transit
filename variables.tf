@@ -144,6 +144,18 @@ variable "bgp_ecmp" {
   default     = false
 }
 
+variable "local_as_number" {
+  description = "Changes the Aviatrix Transit Gateway ASN number before you setup Aviatrix Transit Gateway connection configurations."
+  type        = string
+  default     = ""
+}
+
+variable "enable_bgp_over_lan" {
+  description = "Enable BGp over LAN. Creates eth4 for integration with SDWAN for example"
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name        = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix            = var.prefix ? "avx-" : ""
