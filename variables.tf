@@ -177,7 +177,7 @@ locals {
   newbits           = 26 - local.cidrbits
   netnum            = pow(2, local.newbits)
   subnet            = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 2) : aviatrix_vpc.default.public_subnets[0].cidr
-  ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[2].cidr  
+  ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[2].cidr
   insane_mode_az    = var.insane_mode ? "${var.region}${var.az1}" : null
   ha_insane_mode_az = var.insane_mode ? "${var.region}${var.az2}" : null
 }
