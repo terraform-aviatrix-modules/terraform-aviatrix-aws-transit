@@ -10,11 +10,8 @@ v3.0.2 | 0.13 | >=6.3 | >=0.2.18
 v3.0.1 | 0.13 | >=6.2 | >=0.2.17
 v3.0.0 | 0.13 | >=6.2 | >=0.2.17
 v2.0.0 | 0.12 | >=6.2 | >=0.2.17
-v1.1.1 | 0.12 | |
-v1.1.0 | 0.12 | | 
-v1.0.2 | 0.12 | | 
-v1.0.1 | 0.12 | |
-v1.0.0 | 0.12 | |
+
+**_Information on older releases can be found in respective release notes._*
 
 ### Diagram
 <img src="https://github.com/terraform-aviatrix-modules/terraform-aviatrix-aws-transit/blob/master/img/transit-vpc-aws-ha.png?raw=true">
