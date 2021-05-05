@@ -156,13 +156,28 @@ variable "enable_bgp_over_lan" {
   default     = false
 }
 
+variable "enable_encrypt_volume" {
+  description = "Enable EBS volume encryption for Gateway. Only supports AWS and AWSGOV. Valid values: true, false. Default value: false."
+  type        = bool
+  default     = false
+}
+
+variable "customer_managed_keys" {
+  description = "Customer managed key ID for EBS Volume encryption."
+  type        = string
+  default     = null
+}
+
 locals {
   lower_name        = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix            = var.prefix ? "avx-" : ""
   suffix            = var.suffix ? "-transit" : ""
   name              = "${local.prefix}${local.lower_name}${local.suffix}"
-  subnet            = var.insane_mode ? cidrsubnet(var.cidr, 3, 6) : aviatrix_vpc.default.subnets[4].cidr
-  ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, 3, 7) : aviatrix_vpc.default.subnets[6].cidr
+  cidrbits          = tonumber(split("/", var.cidr)[1])
+  newbits           = 26 - local.cidrbits
+  netnum            = pow(2, local.newbits)
+  subnet            = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 2) : aviatrix_vpc.default.public_subnets[0].cidr
+  ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[2].cidr
   insane_mode_az    = var.insane_mode ? "${var.region}${var.az1}" : null
   ha_insane_mode_az = var.insane_mode ? "${var.region}${var.az2}" : null
 }

@@ -6,7 +6,8 @@ This module deploys a VPC and a set of Aviatrix transit gateways.
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v3.0.0 | 0.13 | >=6.2 | >=0.2.17
+v3.0.2 | 0.13 | >=6.2 | >=0.2.18
+v3.0.1 | 0.13 | >=6.2 | >=0.2.18
 v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 v1.1.1 | 0.12 | |
 v1.1.0 | 0.12 | | 
@@ -25,7 +26,7 @@ with ha_gw set to false, the following will be deployed:
 ```
 module "transit_aws_1" {
   source  = "terraform-aviatrix-modules/aws-transit/aviatrix"
-  version = "v3.0.0"
+  version = "v3.0.2"
 
   cidr = "10.1.0.0/20"
   region = "eu-west-1"
@@ -70,6 +71,8 @@ bgp_polling_time  | 50 | BGP route polling time. Unit is in seconds
 bgp_ecmp  | false | Enable Equal Cost Multi Path (ECMP) routing for the next hop
 local_as_number | | Changes the Aviatrix Transit Gateway ASN number before you setup Aviatrix Transit Gateway connection configurations.
 enable_bgp_over_lan | false | Enable BGp over LAN. Creates eth4 for integration with SDWAN for example
+enable_encrypt_volume | false | Set to true to enable EBS volume encryption for Gateway.
+customer_managed_keys | null | Customer managed key ID for EBS Volume encryption.
 
 ### Outputs
 This module will return the following objects:
