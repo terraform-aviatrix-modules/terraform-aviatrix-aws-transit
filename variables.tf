@@ -147,7 +147,7 @@ variable "bgp_ecmp" {
 variable "local_as_number" {
   description = "Changes the Aviatrix Transit Gateway ASN number before you setup Aviatrix Transit Gateway connection configurations."
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "enable_bgp_over_lan" {
