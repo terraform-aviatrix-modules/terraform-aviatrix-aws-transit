@@ -41,4 +41,7 @@ resource "aviatrix_transit_gateway" "default" {
   enable_bgp_over_lan              = var.enable_bgp_over_lan
   enable_encrypt_volume            = var.enable_encrypt_volume
   customer_managed_keys            = var.customer_managed_keys
+  tunnel_detection_time            = var.tunnel_detection_time
+  tags                             = var.tags
+  enable_multi_tier_transit        = var.enable_multi_tier_transit
 }
