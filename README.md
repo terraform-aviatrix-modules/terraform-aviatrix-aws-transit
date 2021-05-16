@@ -71,6 +71,9 @@ local_as_number | | Changes the Aviatrix Transit Gateway ASN number before you s
 enable_bgp_over_lan | false | Enable BGp over LAN. Creates eth4 for integration with SDWAN for example
 enable_encrypt_volume | false | Set to true to enable EBS volume encryption for Gateway.
 customer_managed_keys | null | Customer managed key ID for EBS Volume encryption.
+tunnel_detection_time | null | The IPsec tunnel down detection time for the Spoke Gateway in seconds. Must be a number in the range [20-600]. Default is 60.
+tags | null | Map of tags to assign to the gateway.
+enable_multi_tier_transit |	false |	Switch to enable multi tier transit
 
 ### Outputs
 This module will return the following objects:
