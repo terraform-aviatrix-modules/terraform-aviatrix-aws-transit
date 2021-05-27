@@ -6,6 +6,7 @@ This module deploys a VPC and a set of Aviatrix transit gateways.
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
+v4.0.1 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 v4.0.0 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 v3.0.2 | 0.13 | >=6.3 | >=0.2.18
 v3.0.1 | 0.13 | >=6.2 | >=0.2.17
@@ -75,6 +76,7 @@ customer_managed_keys | null | Customer managed key ID for EBS Volume encryption
 tunnel_detection_time | null | The IPsec tunnel down detection time for the Spoke Gateway in seconds. Must be a number in the range [20-600]. Default is 60.
 tags | null | Map of tags to assign to the gateway.
 enable_multi_tier_transit |	false |	Switch to enable multi tier transit
+china | false | Set to true when deploying this module in AWS China
 
 ### Outputs
 This module will return the following objects:
