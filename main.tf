@@ -1,6 +1,6 @@
 #Transit VPC
 resource "aviatrix_vpc" "default" {
-  cloud_type           = 1
+  cloud_type           = local.cloud_type
   name                 = local.name
   region               = var.region
   cidr                 = var.cidr
@@ -12,7 +12,7 @@ resource "aviatrix_vpc" "default" {
 #Transit GW
 resource "aviatrix_transit_gateway" "default" {
   enable_active_mesh               = var.active_mesh
-  cloud_type                       = 1
+  cloud_type                       = local.cloud_type
   vpc_reg                          = var.region
   gw_name                          = local.name
   gw_size                          = var.instance_size
@@ -44,4 +44,5 @@ resource "aviatrix_transit_gateway" "default" {
   tunnel_detection_time            = var.tunnel_detection_time
   tags                             = var.tags
   enable_multi_tier_transit        = var.enable_multi_tier_transit
+  learned_cidrs_approval_mode      = var.learned_cidrs_approval_mode
 }

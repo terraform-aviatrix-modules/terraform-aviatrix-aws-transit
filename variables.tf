@@ -186,6 +186,18 @@ variable "enable_multi_tier_transit" {
   default     = false
 }
 
+variable "china" {
+  description = "Set to true if deploying this module in AWS China."
+  type        = bool
+  default     = false
+}
+
+variable "learned_cidrs_approval_mode" {
+  description = "Learned cidrs approval mode. Defaults to Gateway. Valid values: gateway, connection"
+  type        = string
+  default     = null
+}
+
 locals {
   lower_name        = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix            = var.prefix ? "avx-" : ""
@@ -198,4 +210,5 @@ locals {
   ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[2].cidr
   insane_mode_az    = var.insane_mode ? "${var.region}${var.az1}" : null
   ha_insane_mode_az = var.insane_mode ? "${var.region}${var.az2}" : null
+  cloud_type        = var.china ? 1024 : 1
 }
