@@ -210,5 +210,5 @@ locals {
   ha_subnet         = var.insane_mode ? cidrsubnet(var.cidr, local.newbits, local.netnum - 1) : aviatrix_vpc.default.public_subnets[2].cidr
   insane_mode_az    = var.insane_mode ? "${var.region}${var.az1}" : null
   ha_insane_mode_az = var.insane_mode ? "${var.region}${var.az2}" : null
-  cloud_type        = var.china ? 1024 : 1
+  cloud_type        = var.china ? 1024 : (var.gov ? 256 : 1)
 }
