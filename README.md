@@ -6,7 +6,7 @@ This module deploys a VPC and a set of Aviatrix transit gateways.
 ### Compatibility
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
-v4.0.1 | 0.13 + 0.14 | >=6.4 | >=0.2.19
+v4.0.2 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 v4.0.1 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 v4.0.0 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 
