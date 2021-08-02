@@ -7,11 +7,8 @@ This module deploys a VPC and a set of Aviatrix transit gateways.
 Module version | Terraform version | Controller version | Terraform provider version
 :--- | :--- | :--- | :---
 v4.0.1 | 0.13 + 0.14 | >=6.4 | >=0.2.19
+v4.0.1 | 0.13 + 0.14 | >=6.4 | >=0.2.19
 v4.0.0 | 0.13 + 0.14 | >=6.4 | >=0.2.19
-v3.0.2 | 0.13 | >=6.3 | >=0.2.18
-v3.0.1 | 0.13 | >=6.2 | >=0.2.17
-v3.0.0 | 0.13 | >=6.2 | >=0.2.17
-v2.0.0 | 0.12 | >=6.2 | >=0.2.17
 
 **_Information on older releases can be found in respective release notes._*
 
@@ -26,7 +23,7 @@ with ha_gw set to false, the following will be deployed:
 ```
 module "transit_aws_1" {
   source  = "terraform-aviatrix-modules/aws-transit/aviatrix"
-  version = "v4.0.1"
+  version = "v4.0.2"
 
   cidr = "10.1.0.0/20"
   region = "eu-west-1"
