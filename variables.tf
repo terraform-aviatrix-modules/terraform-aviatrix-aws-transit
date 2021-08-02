@@ -198,6 +198,12 @@ variable "learned_cidrs_approval_mode" {
   default     = null
 }
 
+variable "gov" {
+  description = "Set to true if deploying this module in AWS GOV."
+  type        = bool
+  default     = false
+}
+
 locals {
   lower_name        = length(var.name) > 0 ? replace(lower(var.name), " ", "-") : replace(lower(var.region), " ", "-")
   prefix            = var.prefix ? "avx-" : ""
